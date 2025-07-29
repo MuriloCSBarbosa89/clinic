@@ -24,7 +24,7 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Instalar dependências para testes e migrations
+    - name: Instalar dependências para testes
       working-directory: clinic
       run: |
         python -m pip install --upgrade pip
@@ -33,7 +33,7 @@ jobs:
     - name: Rodar testes
       working-directory: clinic
       run: |
-        python manage.py test
+        pytest -v
 
     - name: Login no Amazon ECR
       uses: aws-actions/amazon-ecr-login@v1
